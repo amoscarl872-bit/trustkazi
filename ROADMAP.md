@@ -16,3 +16,10 @@
 - [ ] Opportunities table and sample data
 - [ ] Site reads from the database
 - [ ] Deployed live on Vercel
+
+## Stage 2: Database and hosting
+- [x] Supabase project created
+- [x] Opportunities table and sample data
+- [x] Row Level Security (read-only public access), verified with a negative test
+- [x] Site reads from the database
+- [x] Deployed live on Vercel
