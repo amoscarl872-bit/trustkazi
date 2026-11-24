@@ -4,17 +4,14 @@ const remoteCheckbox = document.getElementById("remote");
 const resultsEl = document.getElementById("results");
 const countEl = document.getElementById("result-count");
 
+let allOpportunities = [];
+
 // Create an element with optional text and class
 function el(tag, text, className) {
   const node = document.createElement(tag);
   if (text) node.textContent = text;
   if (className) node.className = className;
   return node;
-}
-
-function isOpen(opp) {
-  const today = new Date().toISOString().slice(0, 10);
-  return opp.deadline >= today;
 }
 
 function matches(opp, query, type, remoteOnly) {
@@ -51,9 +48,9 @@ function createCard(opp) {
 
 function render() {
   const query = searchInput.value.trim().toLowerCase();
-  const list = allOpportunities
-    .filter(o => matches(o, query, typeSelect.value, remoteCheckbox.checked))
-    .sort((a, b) => b.postedAt.localeCompare(a.postedAt));
+  const list = allOpportunities.filter(o =>
+    matches(o, query, typeSelect.value, remoteCheckbox.checked)
+  );
 
   resultsEl.replaceChildren(...list.map(createCard));
   countEl.textContent = list.length + " opportunit" + (list.length === 1 ? "y" : "ies") + " found";
@@ -63,7 +60,6 @@ searchInput.addEventListener("input", render);
 typeSelect.addEventListener("change", render);
 remoteCheckbox.addEventListener("change", render);
 
-let allOpportunities = [];
 async function init() {
   countEl.textContent = "Loading opportunities...";
   try {
