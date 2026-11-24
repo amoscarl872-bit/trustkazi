@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunities | TrustKazi</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>TrustKazi</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="opportunities.html">Opportunities</a>
+      <a href="check.html">Check an offer</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Opportunities</h2>
+
+    <section class="filters">
+      <label for="search">Search</label>
+      <input id="search" type="search" placeholder="e.g. developer">
+
+      <label for="type">Type</label>
+      <select id="type">
+        <option value="all">All types</option>
+        <option value="job">Job</option>
+        <option value="internship">Internship</option>
+        <option value="scholarship">Scholarship</option>
+        <option value="gig">Gig</option>
+        <option value="grant">Grant</option>
+      </select>
+
+      <label>
+        <input id="remote" type="checkbox"> Remote only
+      </label>
+    </section>
+
+    <p id="result-count" aria-live="polite"></p>
+    <section id="results"></section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+// Sample data only. Organizations and links are fictional.
+const OPPORTUNITIES = [
+  {
+    id: 1,
+    title: "Junior Web Developer Intern",
+    organization: "Sample Tech Ltd",
+    type: "internship",
+    country: "Kenya",
+    city: "Nairobi",
+    remote: false,
+    deadline: "2026-12-30",
+    description: "Three-month internship building web interfaces with HTML, CSS and JavaScript.",
+    applyUrl: "https://example.com/apply/1",
+    source: "sample data",
+    verified: true,
+    postedAt: "2026-11-20"
+  },
+  {
+    id: 2,
+    title: "Data Entry Clerk (Remote)",
+    organization: "Sample Services Co",
+    type: "gig",
+    country: "Kenya",
+    city: "",
+    remote: true,
+    deadline: "2026-12-15",
+    description: "Part-time remote data entry. Flexible hours.",
+    applyUrl: "https://example.com/apply/2",
+    source: "sample data",
+    verified: false,
+    postedAt: "2026-11-18"
+  },
+  {
+    id: 3,
+    title: "Undergraduate Merit Scholarship",
+    organization: "Sample Education Foundation",
+    type: "scholarship",
+    country: "Kenya",
+    city: "Nairobi",
+    remote: false,
+    deadline: "2027-01-31",
+    description: "Partial tuition support for undergraduate students in STEM fields.",
+    applyUrl: "https://example.com/apply/3",
+    source: "sample data",
+    verified: true,
+    postedAt: "2026-11-10"
+  },
+  {
+    id: 4,
+    title: "Youth Entrepreneurship Grant",
+    organization: "Sample Youth Fund",
+    type: "grant",
+    country: "Kenya",
+    city: "Mombasa",
+    remote: false,
+    deadline: "2027-02-15",
+    description: "Seed funding and mentorship for young founders with a working prototype.",
+    applyUrl: "https://example.com/apply/4",
+    source: "sample data",
+    verified: true,
+    postedAt: "2026-11-05"
+  },
+  {
+    id: 5,
+    title: "Graduate Trainee (Expired Example)",
+    organization: "Sample Corp",
+    type: "job",
+    country: "Kenya",
+    city: "Nairobi",
+    remote: false,
+    deadline: "2026-11-01",
+    description: "This listing is past its deadline and should NOT appear on the page.",
+    applyUrl: "https://example.com/apply/5",
+    source: "sample data",
+    verified: true,
+    postedAt: "2026-10-01"
+  }
+];
