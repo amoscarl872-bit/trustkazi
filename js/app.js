@@ -18,7 +18,6 @@ function isOpen(opp) {
 }
 
 function matches(opp, query, type, remoteOnly) {
-  if (!isOpen(opp)) return false;
   if (type !== "all" && opp.type !== type) return false;
   if (remoteOnly && !opp.remote) return false;
 
@@ -52,7 +51,7 @@ function createCard(opp) {
 
 function render() {
   const query = searchInput.value.trim().toLowerCase();
-  const list = OPPORTUNITIES
+  const list = allOpportunities
     .filter(o => matches(o, query, typeSelect.value, remoteCheckbox.checked))
     .sort((a, b) => b.postedAt.localeCompare(a.postedAt));
 
@@ -64,4 +63,16 @@ searchInput.addEventListener("input", render);
 typeSelect.addEventListener("change", render);
 remoteCheckbox.addEventListener("change", render);
 
-render();
+let allOpportunities = [];
+async function init() {
+  countEl.textContent = "Loading opportunities...";
+  try {
+    allOpportunities = await fetchOpportunities();
+    render();
+  } catch (err) {
+    console.error(err);
+    countEl.textContent = "Could not load opportunities. Please try again later.";
+  }
+}
+
+init();
