@@ -6,14 +6,6 @@ const countEl = document.getElementById("result-count");
 
 let allOpportunities = [];
 
-// Create an element with optional text and class
-function el(tag, text, className) {
-  const node = document.createElement(tag);
-  if (text) node.textContent = text;
-  if (className) node.className = className;
-  return node;
-}
-
 function matches(opp, query, type, remoteOnly) {
   if (type !== "all" && opp.type !== type) return false;
   if (remoteOnly && !opp.remote) return false;
