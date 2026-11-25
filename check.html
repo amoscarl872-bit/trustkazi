@@ -7,17 +7,23 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>TrustKazi</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="check.html">Check an offer</a>
-    </nav>
-  </header>
   <main>
     <h2>Check an offer</h2>
-    <p>The scam checker is coming soon.</p>
+    <p>Paste a job ad, message or email below. TrustKazi looks for common scam warning signs and explains each one. Your text is checked in your browser and is not sent anywhere.</p>
+
+    <label for="offer-text">Offer text</label>
+    <textarea id="offer-text" rows="10" maxlength="5000" placeholder="Paste the offer here..."></textarea>
+
+    <div class="actions">
+      <button id="check-button" type="button" class="button">Check offer</button>
+      <button id="clear-button" type="button" class="button secondary">Clear</button>
+    </div>
+
+    <div id="check-result" aria-live="polite"></div>
   </main>
+
+  <script src="js/utils.js"></script>
+  <script src="js/scamEngine.js"></script>
+  <script src="js/check.js"></script>
 </body>
 </html>
