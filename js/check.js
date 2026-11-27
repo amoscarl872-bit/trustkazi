@@ -3,6 +3,8 @@ const checkButton = document.getElementById("check-button");
 const clearButton = document.getElementById("clear-button");
 const resultEl = document.getElementById("check-result");
 
+let lastCheck = null; // what was last analysed: { text, score }
+
 const LEVEL_LABEL = {
   low: "Low risk",
   medium: "Medium risk",
@@ -58,11 +60,16 @@ checkButton.addEventListener("click", () => {
     resultEl.replaceChildren(el("p", "Please paste the full offer text (at least a sentence or two).", "error"));
     return;
   }
-  showResult(analyzeOffer(text));
+  const result = analyzeOffer(text);
+  showResult(result);
+  lastCheck = { text: text, score: result.score };
+  document.getElementById("report-section").hidden = false;
 });
 
 clearButton.addEventListener("click", () => {
   offerInput.value = "";
   resultEl.replaceChildren();
+  lastCheck = null;
+  document.getElementById("report-section").hidden = true;
   offerInput.focus();
 });

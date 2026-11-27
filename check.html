@@ -7,9 +7,18 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <header>
+    <h1>TrustKazi</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="opportunities.html">Opportunities</a>
+      <a href="check.html">Check an offer</a>
+    </nav>
+  </header>
+
   <main>
     <h2>Check an offer</h2>
-    <p>Paste a job ad, message or email below. TrustKazi looks for common scam warning signs and explains each one. Your text is checked in your browser and is not sent anywhere.</p>
+    <p>Paste a job ad, message or email below. TrustKazi looks for common scam warning signs and explains each one. Your text is checked in your browser and is not sent anywhere unless you choose to report it.</p>
 
     <label for="offer-text">Offer text</label>
     <textarea id="offer-text" rows="10" maxlength="5000" placeholder="Paste the offer here..."></textarea>
@@ -20,10 +29,45 @@
     </div>
 
     <div id="check-result" aria-live="polite"></div>
+
+    <section id="report-section" class="report" hidden>
+      <h3>Report this offer</h3>
+      <p>Help protect other young people. A person reviews every report before anything is published. Do not include your own passwords, PINs, ID numbers or bank details.</p>
+
+      <label for="report-type">What kind of scam does it look like?</label>
+      <select id="report-type">
+        <option value="advance-fee">Asks me to pay money first</option>
+        <option value="fake-job">Fake job</option>
+        <option value="phishing">Tries to steal logins or details</option>
+        <option value="fake-scholarship">Fake scholarship or grant</option>
+        <option value="impersonation">Pretends to be a real company</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="contact-hint">Sender's phone, email or website (optional)</label>
+      <input id="contact-hint" type="text" maxlength="200" autocomplete="off">
+
+      <div class="hp" aria-hidden="true">
+        <label for="website">Leave this field empty</label>
+        <input id="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <label class="consent">
+        <input id="report-consent" type="checkbox">
+        I confirm this text does not contain my own passwords, PINs or ID numbers.
+      </label>
+
+      <button id="report-button" type="button" class="button">Submit report</button>
+      <p id="report-status" aria-live="polite"></p>
+    </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/scamEngine.js"></script>
   <script src="js/check.js"></script>
+  <script src="js/report.js"></script>
 </body>
 </html>
